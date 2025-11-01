@@ -3,6 +3,7 @@
     "description": "An electron-based music player - beta version.",
     "homepage": "https://lyswhut.github.io/lx-music-doc",
     "license": "Apache-2.0",
+    "depends": "7zip",
     "architecture": {
         "64bit": {
             "url": "https://nightly.link/lyswhut/lx-music-desktop/actions/runs/18152473856/lx-music-desktop-win_x64-green.zip",
@@ -17,6 +18,12 @@
             "hash": "06eef9dcf7d162b86f0d2fd8ab2aba1859de9ffe3f11b7151b9baea8c26e9752"
         }
     },
+    "pre_install": [
+        "Get-ChildItem \"$dir\\*.7z\" | ForEach-Object {",
+        "    7z x \"$_\" \"-o$dir\" -y > $null",
+        "    Remove-Item \"$_\"",
+        "}"
+    ],
     "shortcuts": [
         [
             "lx-music-desktop.exe",
