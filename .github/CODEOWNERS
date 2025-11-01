@@ -1,0 +1,7 @@
+/.github/workflows/ @ScoopInstaller/maintainers
+/bin/ @ScoopInstaller/maintainers
+
+/.github/workflows/update-manifests.yml @LetsShareAll/maintainers
+/.github/workflows/verify-manifests.yml @LetsShareAll/maintainers
+/bin/generate-manifests.ps1 @LetsShareAll/maintainers
+/bucket/ @LetsShareAll/maintainers

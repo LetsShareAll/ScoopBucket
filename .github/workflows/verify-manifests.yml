@@ -1,0 +1,31 @@
+name: Verify MANIFESTS.md
+
+on:
+  pull_request:
+    paths:
+      - 'bucket/**'
+
+jobs:
+  verify-manifests:
+    runs-on: windows-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Generate MANIFESTS.md
+      shell: pwsh
+      run: |
+        .\bin\generate-manifests.ps1
+        
+    - name: Check if MANIFESTS.md is up to date
+      shell: pwsh
+      run: |
+        $current = Get-Content "MANIFESTS.md" -Raw
+        $generated = Get-Content "MANIFESTS.md" -Raw
+        
+        if ($current -ne $generated) {
+          Write-Host "❌ MANIFESTS.md 未同步更新！请运行 bin/generate-manifests.ps1 并提交变更。" -ForegroundColor Red
+          exit 1
+        } else {
+          Write-Host "✅ MANIFESTS.md 已同步更新！" -ForegroundColor Green
+        }
