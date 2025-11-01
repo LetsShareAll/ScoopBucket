@@ -22,7 +22,8 @@
    irm get.scoop.sh | iex
    ```
 
-   > ![TIP]
+   > 💡 **提示**
+   >
    > 如需高级安装选项，请查看[官方安装程序自述文件](https://github.com/ScoopInstaller/Install#readme)。
 
 2. **添加本仓库作为 Scoop 的 Bucket：**
