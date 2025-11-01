@@ -56,5 +56,5 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add MANIFESTS.md
-        git commit -m "docs: 自动更新 MANIFESTS.md"
+        git commit -m "docs(MANIFESTS): 自动更新 MANIFESTS.md"
         git push
