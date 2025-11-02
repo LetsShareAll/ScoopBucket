@@ -3,58 +3,58 @@ name: Update MANIFESTS.md
 on:
   push:
     paths:
-      - 'bucket/**'  # 只在 bucket 目录下的文件变更时触发
-    branches: [ main, master ]
+      - "bucket/**" # 只在 bucket 目录下的文件变更时触发
+    branches: [main, master]
   pull_request:
     paths:
-      - 'bucket/**'
-    branches: [ main, master ]
-  workflow_dispatch:  # 允许手动触发
+      - "bucket/**"
+    branches: [main, master]
+  workflow_dispatch: # 允许手动触发
 
 jobs:
   update-manifests:
-    runs-on: windows-latest  # 使用 Windows 因为 Scoop 主要是 Windows 工具
-    
+    runs-on: windows-latest # 使用 Windows 因为 Scoop 主要是 Windows 工具
+
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        fetch-depth: 0  # 获取所有历史，便于后续 git 操作
-        
-    - name: Setup PowerShell
-      shell: pwsh
-      run: |
-        # 确保 PowerShell 模块可用
-        Import-Module PSScriptAnalyzer -ErrorAction SilentlyContinue
-        
-    - name: Generate MANIFESTS.md
-      shell: pwsh
-      run: |
-        # 运行生成脚本
-        .\bin\generate-manifests.ps1
-        
-    - name: Check for changes
-      id: git-check
-      shell: pwsh
-      run: |
-        git status --porcelain
-        $changes = git status --porcelain
-        if ($changes) {
-          echo "has_changes=true" >> $env:GITHUB_OUTPUT
-          echo "Changes detected:"
-          echo $changes
-        } else {
-          echo "has_changes=false" >> $env:GITHUB_OUTPUT
-          echo "No changes detected"
-        }
-        
-    - name: Commit and push if changed
-      if: steps.git-check.outputs.has_changes == 'true'
-      shell: pwsh
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add MANIFESTS.md
-        git commit -m "📃 docs(MANIFESTS): 自动更新 MANIFESTS.md"
-        git push
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0 # 获取所有历史，便于后续 git 操作
+
+      - name: Setup PowerShell
+        shell: pwsh
+        run: |
+          # 确保 PowerShell 模块可用
+          Import-Module PSScriptAnalyzer -ErrorAction SilentlyContinue
+
+      - name: Generate MANIFESTS.md
+        shell: pwsh
+        run: |
+          # 运行生成脚本
+          .\bin\generate-manifests.ps1
+
+      - name: Check for changes
+        id: git-check
+        shell: pwsh
+        run: |
+          git status --porcelain
+          $changes = git status --porcelain
+          if ($changes) {
+            echo "has_changes=true" >> $env:GITHUB_OUTPUT
+            echo "Changes detected:"
+            echo $changes
+          } else {
+            echo "has_changes=false" >> $env:GITHUB_OUTPUT
+            echo "No changes detected"
+          }
+
+      - name: Commit and push if changed
+        if: steps.git-check.outputs.has_changes == 'true'
+        shell: pwsh
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add MANIFESTS.md
+          git commit -m "📃 docs(MANIFESTS): 自动更新 `MANIFESTS.md`。"
+          git push

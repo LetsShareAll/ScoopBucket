@@ -13,6 +13,7 @@ source: "https://github.com/creativecommons/creativecommons.github.io-source/blo
 这里列出了[我们当前所有的代码库](https://github.com/orgs/ScoopInstaller/repositories)。我们使用 GitHub 议题来跟踪与每个代码库相关的工作。在那里您可以找到需要处理的工作。
 
 我们广泛使用议题标签来指定各个议题的优先级、状态和对初学者是否友好。
+
 <!--
 我们在所有项目中都使用一套标准标签，[文档在此](/contributing-code/repo-labels/)。以下是一些与寻找合适议题最相关的标签：
 
@@ -40,6 +41,7 @@ source: "https://github.com/creativecommons/creativecommons.github.io-source/blo
 -->
 
 GitHub 上一些有用的已保存搜索，可帮助您找到议题：
+
 - [标记为 <span class="gh-label friendliness">good first issue</span> 的议题](https://github.com/search?q=org%3AScoopInstaller+is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22+-linked%3Apr)
 - [标记为 <span class="gh-label friendliness">help-wanted</span> 的议题](https://github.com/search?q=org%3AScoopInstaller+is%3Aissue+is%3Aopen+label%3A%22help-wanted%22+-linked%3Apr)
 - [标记为 <span class="gh-label friendliness">help-wanted</span> 的拉取请求](https://github.com/search?q=org%3AScoopInstaller+is%3Apr+is%3Aopen+label%3A%22help-wanted%22)
@@ -54,68 +56,68 @@ GitHub 上一些有用的已保存搜索，可帮助您找到议题：
 
 如果您想处理某个尚无 GitHub 议题的事项，包括提交新软件包，请遵循以下步骤：
 
-1.  在与相关代码库关联的项目中创建一个新的 GitHub 议题，并在那里提出您的更改。请务必包含实现细节和提出更改的理由。
-    *   我们非常不愿意接受没有先创建相关议题的随机拉取请求。
-2.  等待项目维护者评估您的议题，并决定我们是否接受针对该议题的拉取请求。
-3.  一旦项目维护者批准了该议题，您就可以开始编写代码，如上文 **贡献流程** 部分所述。
+1. 在与相关代码库关联的项目中创建一个新的 GitHub 议题，并在那里提出您的更改。请务必包含实现细节和提出更改的理由。
+   - 我们非常不愿意接受没有先创建相关议题的随机拉取请求。
+2. 等待项目维护者评估您的议题，并决定我们是否接受针对该议题的拉取请求。
+3. 一旦项目维护者批准了该议题，您就可以开始编写代码，如上文 **贡献流程** 部分所述。
 
 如有疑问，请在相关代码库的"讨论"选项卡中提问。
 
 ### 对于 Scoop 核心：
 
-1.  在议题下评论并说明您正在处理该议题。这是为了避免与也在处理该议题的其他人发生冲突。
-2.  复刻代码库并从 `develop` 分支创建一个具有适当名称的新分支。
-3.  编写您的代码并运行测试以检查是否存在回归问题。
-4.  更新测试（如果需要）并更新文档。
-5.  提交您的拉取请求。对于 PR 标题，请遵循 [约定式提交](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#commit-message-with-scope)。
-6.  等待代码审查，并尽快处理提出的任何问题。
+1. 在议题下评论并说明您正在处理该议题。这是为了避免与也在处理该议题的其他人发生冲突。
+2. 复刻代码库并从 `develop` 分支创建一个具有适当名称的新分支。
+3. 编写您的代码并运行测试以检查是否存在回归问题。
+4. 更新测试（如果需要）并更新文档。
+5. 提交您的拉取请求。对于 PR 标题，请遵循 [约定式提交](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#commit-message-with-scope)。
+6. 等待代码审查，并尽快处理提出的任何问题。
 
 ### 对于 Scoop 软件桶：
 
-1.  在议题下评论并说明您正在处理该议题。这是为了避免与也在处理该议题的其他人发生冲突。
-2.  复刻代码库并从默认分支（通常是 `master`）创建一个具有适当名称的新分支。
-3.  编写您的代码。遵循以下编写清单的指南：
-    *   阅读关于应用程序清单如何工作的 Wiki - [应用程序清单](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifests) - 以及如何创建一个 - [创建应用程序清单](https://github.com/ScoopInstaller/Scoop/wiki/Creating-an-app-manifest)。
-    *   在 JSON 文件中遵循以下字段顺序（存在的字段）。或者使用[模板](https://github.com/ScoopInstaller/BucketTemplate/blob/master/bucket/app-name.json.template)作为起始文件。
-        - `version`
-        - `description`
-        - `homepage`
-        - `license`
-        - `notes`
-        - `depends`
-        - `suggest`
-        - `architecture`
-            - `url`
-            - `hash`
-        - `extract_dir`
-        - `extract_to`
-        - `pre_install`
-        - `installer`
-        - `post_install`
-        - `env_add_path`
-        - `env_set`
-        - `bin`
-        - `shortcuts`
-        - `persist`
-        - `pre_uninstall`
-        - `uninstaller`
-        - `post_uninstall`
-        - `checkver`
-        - `autoupdate`
-    *   使用 4 个空格的制表符宽度。
-    *   license 属性应为有效的 [SPDX 标识符](https://spdx.org/licenses)。
-    *   高度推荐使用便携式配置（通过使用 `persist`）。
-    *   如果程序文件是 CLI 应用程序，则无需将其添加到 `shortcuts` 中。
-    *   如果程序文件是 GUI 应用程序*并且*它不接受任何命令行参数，则无需将其添加到 `bin` 中。
-    *   如果数组仅包含一个项目，则将其写为字符串。
-    *   如果应用程序*仅*提供 32 位下载，则不需要 `architecture` 字段。在所有其他情况下，`architecture` 字段是必需的。
-4.  通过安装、卸载、检查功能、持久化等测试您的清单。
-5.  确认清单可以自动更新 - 参见 [应用程序清单自动更新](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifest-Autoupdate)。
-6.  提交您的拉取请求。标题应遵循以下规则：
-    *   如果是新清单，使用 `<app name>: Add version <version>`。
-    *   如果是对现有清单的更新，使用 `<app name>@<version>: <small description>`。
-    *   如果是与维护相关的事项，使用 `(chore): <small description>`。
-7.  在提交 PR 后，添加一条以 "/verify" 开头的评论 - 这将启动自动清单验证器。
-8.  等待代码审查，并尽快处理提出的任何问题。
+1. 在议题下评论并说明您正在处理该议题。这是为了避免与也在处理该议题的其他人发生冲突。
+2. 复刻代码库并从默认分支（通常是 `master`）创建一个具有适当名称的新分支。
+3. 编写您的代码。遵循以下编写清单的指南：
+   - 阅读关于应用程序清单如何工作的 Wiki - [应用程序清单](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifests) - 以及如何创建一个 - [创建应用程序清单](https://github.com/ScoopInstaller/Scoop/wiki/Creating-an-app-manifest)。
+   - 在 JSON 文件中遵循以下字段顺序（存在的字段）。或者使用[模板](https://github.com/ScoopInstaller/BucketTemplate/blob/master/bucket/app-name.json.template)作为起始文件。
+     - `version`
+     - `description`
+     - `homepage`
+     - `license`
+     - `notes`
+     - `depends`
+     - `suggest`
+     - `architecture`
+       - `url`
+       - `hash`
+     - `extract_dir`
+     - `extract_to`
+     - `pre_install`
+     - `installer`
+     - `post_install`
+     - `env_add_path`
+     - `env_set`
+     - `bin`
+     - `shortcuts`
+     - `persist`
+     - `pre_uninstall`
+     - `uninstaller`
+     - `post_uninstall`
+     - `checkver`
+     - `autoupdate`
+   - 使用 4 个空格的制表符宽度。
+   - license 属性应为有效的 [SPDX 标识符](https://spdx.org/licenses)。
+   - 高度推荐使用便携式配置（通过使用 `persist`）。
+   - 如果程序文件是 CLI 应用程序，则无需将其添加到 `shortcuts` 中。
+   - 如果程序文件是 GUI 应用程序*并且*它不接受任何命令行参数，则无需将其添加到 `bin` 中。
+   - 如果数组仅包含一个项目，则将其写为字符串。
+   - 如果应用程序*仅*提供 32 位下载，则不需要 `architecture` 字段。在所有其他情况下，`architecture` 字段是必需的。
+4. 通过安装、卸载、检查功能、持久化等测试您的清单。
+5. 确认清单可以自动更新 - 参见 [应用程序清单自动更新](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifest-Autoupdate)。
+6. 提交您的拉取请求。标题应遵循以下规则：
+   - 如果是新清单，使用 `<app name>: Add version <version>`。
+   - 如果是对现有清单的更新，使用 `<app name>@<version>: <small description>`。
+   - 如果是与维护相关的事项，使用 `(chore): <small description>`。
+7. 在提交 PR 后，添加一条以 "/verify" 开头的评论 - 这将启动自动清单验证器。
+8. 等待代码审查，并尽快处理提出的任何问题。
 
 **关于协作的说明：** 我们鼓励人们尽可能多地进行协作。我们特别感谢贡献者相互审查拉取请求，只要您在这样做时保持[友善和建设性](https://medium.com/@otarutunde/comments-during-code-reviews-2cb7791e1ac7)。
