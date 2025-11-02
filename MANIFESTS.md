@@ -5,8 +5,8 @@
 
 | 软件包 | 版本 | 描述 | 许可证 | 主页 | 更新时间 |
 |--------|------|------|--------|------|----------|
-| **lx-music-desktop-beta** | 2.12.0-beta.10 | An electron-based music player - beta version. | Apache-2.0 | [🔗](https://lyswhut.github.io/lx-music-doc) | 2025-11-01 |
-| **lx-music-desktop** | 2.11.0 | An electron-based music player. | Apache-2.0 | [🔗](https://lyswhut.github.io/lx-music-doc) | 2025-11-01 |
+| **lx-music-desktop-beta** | 2.12.0-beta.10 | An electron-based music player - beta version. | Apache-2.0 | [🔗](https://lyswhut.github.io/lx-music-doc) | 2025-11-02 |
+| **lx-music-desktop** | 2.11.0 | An electron-based music player. | Apache-2.0 | [🔗](https://lyswhut.github.io/lx-music-doc) | 2025-11-02 |
 
 ---
 
@@ -14,7 +14,7 @@
 
 - **总软件包数**: 2
 - **成功解析**: 2
-- **生成时间**: 2025年11月01日 17:04:43 (UTC)
+- **生成时间**: 2025年11月02日 06:07:51 (UTC)
 - **自动更新**: 此文件由 [GitHub Actions](.github/workflows/update-manifests.yml) 自动生成
 
 ## 📄 许可证说明
