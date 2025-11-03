@@ -8,6 +8,8 @@ param(
 $ErrorActionPreference = 'Stop'
 
 try {
+    # 记录执行脚本时的目录
+    $executionPath = Get-Location
     # 切换到脚本所在目录
     Set-Location $PSScriptRoot
 
@@ -116,6 +118,9 @@ try {
         Write-Host "`n📋 文件预览:" -ForegroundColor Cyan
         Get-Content $OutputPath -Head 12 | ForEach-Object { Write-Host "  $_" -ForegroundColor Gray }
     }
+
+    # 回到执行脚本前的目录
+    Set-Location $executionPath
 }
 catch {
     Write-Host "💥 脚本执行失败: $($_.Exception.Message)" -ForegroundColor Red
