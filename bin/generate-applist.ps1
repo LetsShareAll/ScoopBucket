@@ -1,7 +1,7 @@
 #!/usr/bin/env pwsh
 param(
     [string]$BucketPath = '../bucket',
-    [string]$OutputPath = '../MANIFESTS.md'
+    [string]$OutputPath = '../AppList.md'
 )
 
 # 错误处理
@@ -11,7 +11,7 @@ try {
     # 切换到脚本所在目录
     Set-Location $PSScriptRoot
 
-    Write-Host '开始生成 MANIFESTS.md...' -ForegroundColor Cyan
+    Write-Host '开始生成 AppList.md...' -ForegroundColor Cyan
 
     $manifestFiles = Get-ChildItem -Path $BucketPath -Filter '*.json' | Sort-Object Name
     $output = @()
@@ -92,7 +92,7 @@ try {
     $output += "- **总软件包数**: $count"
     $output += "- **成功解析**: $successCount"
     $output += "- **生成时间**: $(Get-Date -Format 'yyyy年MM月dd日 HH:mm:ss') (UTC)"
-    $output += '- **自动更新**: 此文件由 [GitHub Actions](.github/workflows/update-manifests.yml) 自动生成'
+    $output += '- **自动更新**: 此文件由 [GitHub Actions](.github/workflows/update_applist.yml) 自动生成'
     $output += ''
     $output += '## 📄 许可证说明'
     $output += ''
@@ -103,7 +103,7 @@ try {
     # 写入文件
     $output | Out-File -FilePath $OutputPath -Encoding UTF8 -Force
 
-    Write-Host '🎉 MANIFESTS.md 生成完成！' -ForegroundColor Green
+    Write-Host '🎉 AppList.md 生成完成！' -ForegroundColor Green
     Write-Host "📦 共处理 $count 个软件包，成功 $successCount 个" -ForegroundColor Cyan
 
     # 显示生成的文件内容预览

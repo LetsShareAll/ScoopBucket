@@ -1,4 +1,4 @@
-name: Update MANIFESTS.md
+name: Update Application List
 
 on:
   push:
@@ -12,7 +12,7 @@ on:
   workflow_dispatch: # 允许手动触发
 
 jobs:
-  update-manifests:
+  update-applist:
     runs-on: windows-latest # 使用 Windows 因为 Scoop 主要是 Windows 工具
 
     steps:
@@ -28,11 +28,11 @@ jobs:
           # 确保 PowerShell 模块可用
           Import-Module PSScriptAnalyzer -ErrorAction SilentlyContinue
 
-      - name: Generate MANIFESTS.md
+      - name: Generate AppList.md
         shell: pwsh
         run: |
           # 运行生成脚本
-          .\bin\generate-manifests.ps1
+          .\bin\generate-applist.ps1
 
       - name: Check for changes
         id: git-check
@@ -55,6 +55,6 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add MANIFESTS.md
-          git commit -m "📃 docs(MANIFESTS): 自动更新 `MANIFESTS.md`。"
+          git add AppList.md
+          git commit -m "📃 docs(AppList): 自动更新 `AppList.md`。"
           git push
