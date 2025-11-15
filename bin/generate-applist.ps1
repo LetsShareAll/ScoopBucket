@@ -4,6 +4,9 @@ param(
 )
 
 try {
+    $executionPath = Get-Location
+    Set-Location $PSScriptRoot
+
     $manifestFiles = Get-ChildItem -Path $BucketPath -Filter '*.json'
     $output = @()
 
@@ -50,6 +53,8 @@ try {
 
     $output | Out-File -FilePath $OutputPath -Encoding UTF8
     Write-Host "Generation completed: $OutputPath"
+
+    Set-Location $executionPath
 }
 catch {
     Write-Host "Error: $($_.Exception.Message)"
