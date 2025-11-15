@@ -11,7 +11,7 @@
 
 ## 📦 包含的软件包
 
-详细的软件包列表请参阅 [MANIFESTS.md](MANIFESTS.md)。
+详细的软件包列表请参阅 [AppList.md](AppList.md)。
 
 ## 🚀 使用方法
 
@@ -54,12 +54,12 @@
 
 ## 🤝 贡献
 
-我们非常欢迎社区贡献！[citation:7]
+我们非常欢迎社区贡献！
 
 ### 贡献新的软件包或更新
 
 1. Fork 本仓库。
-2. 在 `bucket` 目录下创建或修改软件的清单文件 (`.json`)。请参考 [Scoop 的 Wiki](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifests) 了解清单文件的编写规范。[citation:2]
+2. 在 `bucket` 目录下创建或修改软件的清单文件 (`.json`)。请参考 [Scoop 的 Wiki](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifests) 了解清单文件的编写规范。
 3. 提交你的更改到你的 Fork。
 4. 创建一个 Pull Request (PR) 到本仓库。
 5. 请确保你的清单文件格式正确，可以通过仓库内的 `test.ps1` 脚本进行基本验证。
@@ -73,27 +73,8 @@
 - **对于问题报告：** 操作系统版本、Scoop 版本、出错的命令、完整的错误信息。
 - **对于新软件包请求：** 软件名称、官网地址、下载地址（如果知道的话）。
 
-更详细的贡献指南，请参考 [CONTRIBUTING.md](.github/CONTRIBUTING.md)。[citation:7]
-
-## 🔧 项目结构
-
-```terminal
-.
-├── .github/ # GitHub 相关配置
-│ ├── workflows/ # GitHub Actions 工作流
-│ └── CONTRIBUTING.md # 贡献指南
-├── bucket/ # 软件包清单目录
-│ ├── lx-music-desktop.json
-│ └── lx-music-desktop-beta.json
-├── bin/ # 维护脚本
-│ ├── checkver.ps1 # 检查版本更新
-│ ├── checkhashes.ps1 # 检查哈希值
-│ └── ...
-├── LICENSE
-├── README.md # 本文件
-└── MANIFESTS.md # 详细的软件包清单（自动生成）
-```
+更详细的贡献指南，请参考 [CONTRIBUTING.md](.github/CONTRIBUTING.md)。
 
 ## 📄 许可证
 
-本项目采用 [MIT](LICENSE) 许可证。[citation:9]
+本项目采用 [MIT](LICENSE) 许可证。
