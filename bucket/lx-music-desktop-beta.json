@@ -40,7 +40,7 @@
             "$run_id = $actions_info.workflow_runs[0].id",
             "Write-Output \"$($version_info.version) $run_id\""
         ],
-        "regex": "(\\S+)\\s+?(<runid>\\d+)"
+        "regex": "(\\S+)\\s+(?<runid>\\d+)"
     },
     "autoupdate": {
         "architecture": {
