@@ -1,0 +1,32 @@
+{
+    "depends": "",
+    "license": "GPL-3.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/bggRGjQaUbCoE/PiliPlus/releases/download/1.1.5.4/PiliPlus_windows_1.1.5+4543_x64.zip",
+            "hash": "5dd5d7ba9d5fc752f37a6478b77e3ed55607e7da7c10acaacc504fa12fd418fa"
+        }
+    },
+    "extract_dir": "PiliPlus-Win",
+    "bin": "",
+    "hash": "",
+    "homepage": "https://github.com/bggRGjQaUbCoE/PiliPlus",
+    "version": "1.1.5.4",
+    "description": "使用 Flutter 开发的 BiliBili 第三方客户端。",
+    "shortcuts": [["piliplus.exe", "PiliPlus"]],
+    "post_uninstall": "if ($purge) { Remove-Item \"$env:APPDATA\\com.example\\piliplus\", \"$env:LOCALAPPDATA\\com.example\\piliplus\" -Force -Recurse -ErrorAction SilentlyContinue }",
+    "notes": [
+        "PiliPlus 不是便携版应用。",
+        "其设置文件存储于“%APPDATA%\\com.example\\piliplus”。这些文件在卸载时会自动删除，请注意备份！"
+    ],
+    "checkver": {
+        "github": "https://github.com/bggRGjQaUbCoE/PiliPlus"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/bggRGjQaUbCoE/PiliPlus/releases/download/$version/PiliPlus_windows_$matchMain+$matchBuild_x64.zip"
+            }
+        }
+    }
+}
